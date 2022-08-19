@@ -1,0 +1,18 @@
+.bg-teal-500 {
+    --bg-opacity: 1 !important;
+    background-color: #827E7E !important;
+    background-color: rgba(130, 126, 126, var(--bg-opacity)) !important;
+}
+
+.bg-orange-500 {
+    background-color: #ed8936;
+}
+
+.container {
+    padding-left: 13%;
+
+}
+
+/*.mainHeader{
+    box-shadow: 5px 0px 10px -2px rgba(17, 26, 41, 0.6);
+}*/

@@ -1,0 +1,47 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "blockchain API Service",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: No test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "concurrently \"npm run server\"",
+    "server": "nodemon server.js",
+    "azure": "NPM_CONFIG_PRODUCTION=false npm install && npm run server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@skavinvarnan/cryptlib": "^1.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "bson": "^4.5.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "enum": "^3.0.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mkdirp": "^1.0.4",
+    "moment": "^2.29.1",
+    "mongodb": "^3.7.3",
+    "node-cron": "^3.0.0",
+    "nodemon": "^2.0.7",
+    "pm2": "^5.2.0",
+    "react-toastify": "^9.0.1",
+    "solc": "^0.8.13",
+    "swagger-jsdoc": "^6.2.0",
+    "swagger-ui-express": "^4.3.0",
+    "uuid": "^8.3.2",
+    "web3": "^1.7.3",
+    "web3-eth": "^1.7.0",
+    "web3-providers-http": "^1.7.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0"
+  },
+  "keywords": []
+}

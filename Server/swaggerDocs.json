@@ -1,0 +1,925 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Swagger Documentation for Blockchain Api's",
+        "version": "1.0.0",
+        "title": "Blockchain Api's"
+    },
+    "schemes": [
+        "http"
+    ],
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {
+        "/login/signin": {
+            "post": {
+                "summary": "Allow users to login",
+                "description": "Allow users to login",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User Login object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "username": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/loginResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/login/register": {
+            "post": {
+                "summary": "Create New User",
+                "description": "Create New User",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Create user object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "firstName": {
+                                    "type": "string"
+                                },
+                                "lastName": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/signUpResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getCountryList": {
+            "get": {
+                "summary": "Fetch country list",
+                "description": "Fetch country list",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "_id": {
+                                        "type": "string"
+                                    },
+                                    "countryName": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/login/adminLogin": {
+            "post": {
+                "summary": "Allow admin User to login",
+                "description": "Allow admin User to login",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User Login object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "username": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/loginResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createToken": {
+            "post": {
+                "summary": "Create New Token",
+                "description": "Create New Token",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Create Token object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "tokenName": {
+                                    "type": "string"
+                                },
+                                "tokenSymbol": {
+                                    "type": "string"
+                                },
+                                "tokenDecimal": {
+                                    "type": "integer"
+                                },
+                                "initialSupply": {
+                                    "type": "integer"
+                                },
+                                "tokenSupply": {
+                                    "type": "integer"
+                                },
+                                "supplyType": {
+                                    "type": "string"
+                                },
+                                "accessType": {
+                                    "type": "string"
+                                },
+                                "transferType": {
+                                    "type": "string"
+                                },
+                                "varifySource": {
+                                    "type": "boolean"
+                                },
+                                "removeCopy": {
+                                    "type": "boolean"
+                                },
+                                "burnable": {
+                                    "type": "boolean"
+                                },
+                                "mintable": {
+                                    "type": "boolean"
+                                },
+                                "erc": {
+                                    "type": "boolean"
+                                },
+                                "tokenRecover": {
+                                    "type": "boolean"
+                                },
+                                "tokenType": {
+                                    "type": "string"
+                                },
+                                "network": {
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "type": "string"
+                                },
+                                "userName": {
+                                    "type": "string"
+                                },
+                                "commisionFee":{
+                                    "type":"integer"
+                                },
+                                "gasFee":{
+                                    "type":"integer"
+                                },
+                                "subscriptionFee":{
+                                    "type": "string"
+                                },
+                                "createdBy":{
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "msg": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getTokenDetailsbyUser/{userId}/{pg}": {
+            "get": {
+                "summary": "Fetch Token Details of User",
+                "description": "Fetch Token Details of User",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "userId to Fetch Token Details for selected User",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pg",
+                        "in": "path",
+                        "description": "page number to move to next page",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "#/definitions/tokenDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },       
+        "/api/getTokenDetailsbyId/{tokenId}": {
+            "get": {
+                "summary": "Fetch Token Details of selected TokenId for User",
+                "description": "Fetch Token Details of selected TokenId for User",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "tokenId",
+                        "in": "path",
+                        "description": "TokenId to Fetch Token Details",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "#/definitions/tokenDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/getAllUserDetails/{pg}": {
+            "get": {
+                "summary": "Fetch User list for Admin",
+                "description": "Fetch User list for Admin",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pg",
+                        "in": "path",
+                        "description": "page number to move to next page",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "_id": {
+                                        "type": "string"
+                                    },
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "email_id": {
+                                        "type": "string"
+                                    },
+                                    "userName": {
+                                        "type": "string"
+                                    },
+                                    "userCountry": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "_id": {
+                                                    "type": "string"
+                                                },
+                                                "countryName": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/getTokenDetailsbyUser/{userId}/{pg}": {
+            "get": {
+                "summary": "Fetch Token Details of User for admin",
+                "description": "Fetch Token Details of User for admin",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "userId to Fetch Token Details for selected User",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pg",
+                        "in": "path",
+                        "description": "page number to move to next page",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "#/definitions/tokenDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/getTokenDetailsbyId/{tokenId}": {
+            "get": {
+                "summary": "Fetch Token Details of selected TokenId for Admin",
+                "description": "Fetch Token Details of selected TokenId for Admin",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "tokenId",
+                        "in": "path",
+                        "description": "TokenId to Fetch Token Details",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "#/definitions/tokenDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/getSubscriptionFeeList": {
+            "get": {
+                "summary": "Fetch Subscription Fee List for Admin",
+                "description": "Fetch Subscription Fee List for Admin",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "#/definitions/subscriptionFeeDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/getSubscriptionFee/{id}": {
+            "get": {
+                "summary": "Fetch Subscription Fee  by Id for Admin",
+                "description": "Fetch Subscription Fee   by Id for Admin",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id to Fetch Subscription Fee Details",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "#/definitions/subscriptionFeeDetails"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/updateSubscriptionFee": {
+            "post": {
+                "summary": "Update Subscription Fee",
+                "description": "Update Subscription Fee",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Subscription Fee object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "feeIn$": {
+                                    "type": "string"
+                                },
+                                "contract_type": {
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "type": "string"
+                                },
+                                "userName": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "msg": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/updateTokenStatus": {
+            "post": {
+                "summary": "Update Token Status",
+                "description": "Update Token Status",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Token Status object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "type": "string"
+                                },
+                                "remark": {
+                                    "type": "string"
+                                },
+                                "userName": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "msg": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "LoginRequest": {
+            "type": "object",
+            "properties": {
+                "username": { 
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "loginResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                
+                "error": {
+                    "type": "string"
+                }
+            }
+        },
+        "signUpRequest": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "email_id": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "signUpResponse": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "tokenDetails":{
+            "type": "object",
+            "properties": {
+                "tokenName": {
+                    "type": "string"
+                },
+                "tokenSymbol": {
+                    "type": "integer"
+                },
+                "tokenDecimal": {
+                    "type": "integer"
+                },
+                "initialSupply": {
+                    "type": "integer"
+                },
+                "totalSupply": {
+                    "type": "integer"
+                },
+                "supplyType": {
+                    "type": "string"
+                },
+                "accessType": {
+                    "type": "string"
+                },
+                "transferType": {
+                    "type": "string"
+                },
+                "varifySource": {
+                    "type": "boolean"
+                },
+                "removeCopy": {
+                    "type": "boolean"
+                },
+                "burnable": {
+                    "type": "boolean"
+                },
+                "mintable": {
+                    "type": "boolean"
+                },
+                "erc": {
+                    "type": "boolean"
+                },
+                "tokenRecover": {
+                    "type": "boolean"
+                },
+                "tokenType": {
+                    "type": "string"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "userName": {
+                    "type": "string"
+                },
+                "commisionFee":{
+                    "type":"integer"
+                },
+                "gasFee":{
+                    "type":"integer"
+                },
+                "subscriptionFee":{
+                    "type":"string"
+                },
+                "createdOn":{
+                    "type":"dateTime"
+                },
+                "createdBy":{
+                    "type":"string"
+                },
+                "subscriptionFees":{
+                    "type": "object",
+                    "properties": {
+                        "_id":{
+                            "type":"string"
+                        },
+                        "contractType":{
+                            "type":"string"
+                        },
+                        "feeIn$":{
+                            "type":"string"
+                        },
+                        "status":{
+                            "type":"string"
+                        },
+                        "updatedBy":{
+                            "type":"string"
+                        },
+                        "createdBy":{
+                            "type":"string"
+                        },
+                        "createdOn":{
+                            "type":"dateTime"
+                        },
+                        "updatedOn":{
+                            "type":"dateTime"
+                        }
+                    }
+                }
+
+            }
+
+        },
+        "subscriptionFeeDetails":{
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "contractType": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "integer"
+                },
+                "createdOn": {
+                    "type": "dateTime"
+                },
+                "feeIn$": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "updatedBy": {
+                    "type": "string"
+                },
+                "updatedOn": {
+                    "type": "dateTime"
+                }
+            }
+
+        }
+    }
+}
